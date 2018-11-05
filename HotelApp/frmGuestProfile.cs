@@ -104,5 +104,29 @@ namespace HotelApp
                     return isPaid = true;
             }
         }
+
+        private void cmdUpdateeBooking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdDeleteBooking_Click(object sender, EventArgs e)
+        {
+            Booking selectedBooking = (Booking)lstBookings.SelectedItem;
+
+            using (var context = new HotelBookingsEntities())
+            {
+                var booking = (from b in context.Bookings
+                               where b.BookingID == selectedBooking.BookingID
+                               select b).SingleOrDefault();
+
+                context.Invoices.RemoveRange(booking.Invoices);
+                context.Bookings.Remove(booking);
+
+                context.SaveChanges();
+            }
+
+            MessageBox.Show("Booking cancelled.");
+        }
     }
 }

@@ -247,6 +247,7 @@
             this.cmdUpdateeBooking.TabIndex = 56;
             this.cmdUpdateeBooking.Text = "Update";
             this.cmdUpdateeBooking.UseVisualStyleBackColor = true;
+            this.cmdUpdateeBooking.Click += new System.EventHandler(this.cmdUpdateeBooking_Click);
             // 
             // cmdDeleteBooking
             // 
@@ -256,6 +257,7 @@
             this.cmdDeleteBooking.TabIndex = 57;
             this.cmdDeleteBooking.Text = "Delete";
             this.cmdDeleteBooking.UseVisualStyleBackColor = true;
+            this.cmdDeleteBooking.Click += new System.EventHandler(this.cmdDeleteBooking_Click);
             // 
             // cmdPayBooking
             // 
