@@ -66,17 +66,13 @@ namespace HotelApp
 
             foreach (var room in RoomList.ToList())
             {
-                 var query = from b in Bookings
-                                 //where (b.StartDate.Date == dtpStartDate.Value.Date && b.EndDate.Date == dtpEndDate.Value.Date && b.RoomID == room.RoomID) 
-                                 //|| (b.StartDate.Date > dtpStartDate.Value.Date && b.EndDate.Date < dtpEndDate.Value.Date && b.RoomID == room.RoomID)
-                             where dtpStartDate.Value.Date >= b.StartDate.Date && dtpEndDate.Value.Date <= b.EndDate.Date && b.RoomID == room.RoomID
-                                    || dtpStartDate.Value.Date == b.StartDate.Date && b.RoomID == room.RoomID
-                                    || dtpEndDate.Value.Date == b.EndDate.Date && b.RoomID == room.RoomID
+                DateTime checkIn = dtpStartDate.Value.Date;
+                DateTime checkOut = dtpEndDate.Value.Date;
 
-                             select b;
-
-                //(myDate >= startDate && myDate <= endDate);
-
+                var query = from b in Bookings
+                            where (checkIn <= b.EndDate.Date && checkIn >= b.StartDate.Date ||
+                            b.StartDate.Date <= checkOut && b.StartDate.Date >= checkIn) && b.RoomID == room.RoomID
+                            select b;
 
                 if (query.Count() == 0)
                 {
@@ -92,8 +88,6 @@ namespace HotelApp
         private void cmdSearch_Click(object sender, EventArgs e)
         {
             FindAvailableRooms();
-
-
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

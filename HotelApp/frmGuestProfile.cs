@@ -61,6 +61,11 @@ namespace HotelApp
             txtEndDate.Text = booking.EndDate.Date.ToString();
             txtPrice.Text = booking.TotalPrice.ToString();
 
+            if (FindPayment())
+                txtInvoiceID.Text = "Paid";
+            else
+                txtInvoiceID.Text = "Unpaid";
+
         }
 
         private void LoadBookings()
@@ -80,6 +85,24 @@ namespace HotelApp
             lstBookings.DataSource = Bookings;
             lstBookings.DisplayMember = "Time";
             lstBookings.ValueMember = "BookingID";
+        }
+
+        private bool FindPayment()
+        {
+            bool isPaid = false;
+            Booking booking = (Booking)lstBookings.SelectedItem;
+
+            using (var ctx = new HotelBookingsEntities())
+            {
+                var query = (from i in ctx.Invoices
+                            where i.BookingID == booking.BookingID
+                            select i).SingleOrDefault();
+
+                if (query == null)
+                    return isPaid;
+                else
+                    return isPaid = true;
+            }
         }
     }
 }
