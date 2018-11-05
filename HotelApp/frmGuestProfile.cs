@@ -31,11 +31,16 @@ namespace HotelApp
                          where g.Email == txtEmail.Text
                          select g).SingleOrDefault();
 
-                txtGuestID.Text = Guest.GuestID.ToString();
-                txtName.Text = Guest.Name;
-                txtPhone.Text = Guest.Phone;
+                if (Guest == null)
+                    MessageBox.Show("Account not found");
+                else
+                {
+                    txtGuestID.Text = Guest.GuestID.ToString();
+                    txtName.Text = Guest.Name;
+                    txtPhone.Text = Guest.Phone;
 
-                LoadBookings();
+                    LoadBookings();
+                }
             }
 
         }
@@ -135,6 +140,25 @@ namespace HotelApp
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
              
+        }
+
+        private void cmdDeleteAccount_Click(object sender, EventArgs e)
+        {
+            if (Bookings.Count > 0)
+                MessageBox.Show("You cannot delete an account with bookings!");
+            else
+            {
+                using (var context = new HotelBookingsEntities())
+                {
+                    var guest = context.Guests.Find(Guest.GuestID);
+                    context.Guests.Remove(guest);
+
+                    context.SaveChanges();
+                }
+
+                MessageBox.Show("Account successfully removed.");
+                Close();
+            }
         }
     }
 }

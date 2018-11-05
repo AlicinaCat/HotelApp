@@ -277,6 +277,7 @@
             this.cmdDeleteAccount.TabIndex = 59;
             this.cmdDeleteAccount.Text = "Delete account";
             this.cmdDeleteAccount.UseVisualStyleBackColor = true;
+            this.cmdDeleteAccount.Click += new System.EventHandler(this.cmdDeleteAccount_Click);
             // 
             // frmGuestProfile
             // 
