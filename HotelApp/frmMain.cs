@@ -60,7 +60,7 @@ namespace HotelApp
             frmNewBooking.Show();
         }
 
-        private void FindAvailableRooms()       //???!!!!???
+        public void FindAvailableRooms()     
         {
             List<Room> availableRooms = new List<Room>();
 

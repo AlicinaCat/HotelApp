@@ -163,5 +163,50 @@ namespace HotelApp
         {
 
         }
+
+        private void txtTotalPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbExtraBeds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRoom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEndDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStartDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -107,7 +107,10 @@ namespace HotelApp
 
         private void cmdUpdateeBooking_Click(object sender, EventArgs e)
         {
+            Booking booking = (Booking)lstBookings.SelectedItem;
 
+            frmUpdateBooking frmUpdateBooking = new frmUpdateBooking(booking);
+            frmUpdateBooking.Show();
         }
 
         private void cmdDeleteBooking_Click(object sender, EventArgs e)
@@ -127,6 +130,11 @@ namespace HotelApp
             }
 
             MessageBox.Show("Booking cancelled.");
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+             
         }
     }
 }

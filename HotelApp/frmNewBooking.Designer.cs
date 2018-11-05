@@ -59,6 +59,7 @@
             this.txtEndDate.Name = "txtEndDate";
             this.txtEndDate.Size = new System.Drawing.Size(216, 20);
             this.txtEndDate.TabIndex = 3;
+            this.txtEndDate.TextChanged += new System.EventHandler(this.txtEndDate_TextChanged);
             // 
             // txtStartDate
             // 
@@ -66,6 +67,7 @@
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(216, 20);
             this.txtStartDate.TabIndex = 2;
+            this.txtStartDate.TextChanged += new System.EventHandler(this.txtStartDate_TextChanged);
             // 
             // label6
             // 
@@ -75,6 +77,7 @@
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "End date:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -84,6 +87,7 @@
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Start date:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtEmail
             // 
@@ -192,6 +196,7 @@
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(216, 20);
             this.txtRoom.TabIndex = 24;
+            this.txtRoom.TextChanged += new System.EventHandler(this.txtRoom_TextChanged);
             // 
             // txtTotalPrice
             // 
@@ -199,6 +204,7 @@
             this.txtTotalPrice.Name = "txtTotalPrice";
             this.txtTotalPrice.Size = new System.Drawing.Size(216, 20);
             this.txtTotalPrice.TabIndex = 25;
+            this.txtTotalPrice.TextChanged += new System.EventHandler(this.txtTotalPrice_TextChanged);
             // 
             // label8
             // 
@@ -208,6 +214,7 @@
             this.label8.Size = new System.Drawing.Size(57, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "Total price";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -217,6 +224,7 @@
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 27;
             this.label9.Text = "Extra bed(s)";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // cmbExtraBeds
             // 
@@ -225,6 +233,7 @@
             this.cmbExtraBeds.Name = "cmbExtraBeds";
             this.cmbExtraBeds.Size = new System.Drawing.Size(213, 21);
             this.cmbExtraBeds.TabIndex = 28;
+            this.cmbExtraBeds.SelectedIndexChanged += new System.EventHandler(this.cmbExtraBeds_SelectedIndexChanged);
             // 
             // cmdSubmit
             // 

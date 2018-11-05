@@ -179,6 +179,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(124, 20);
             this.txtPrice.TabIndex = 48;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // txtEndDate
             // 
