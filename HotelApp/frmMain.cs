@@ -13,6 +13,7 @@ namespace HotelApp
     public partial class frmMain : Form
     {
         public List<Room> RoomList { get; set; }
+        public List<Booking> Bookings { get; set; }
 
         public frmMain()
         {
@@ -24,10 +25,14 @@ namespace HotelApp
                 RoomList = ctx.Rooms.ToList<Room>();
             }
 
+            using (var ctx = new HotelBookingsEntities())
+            {
 
-            lstRooms.DataSource = RoomList;
-            lstRooms.DisplayMember = "Title";
-            lstRooms.ValueMember = "RoomID";
+                Bookings = ctx.Bookings.ToList<Booking>();
+            }
+
+
+
 
         }
 
@@ -55,40 +60,51 @@ namespace HotelApp
             frmNewBooking.Show();
         }
 
-        private void FindAvailableRooms()       //???
+        private void FindAvailableRooms()       //???!!!!???
         {
             List<Room> availableRooms = new List<Room>();
-            bool isAvailable = true;
 
-            using (var ctx = new HotelBookingsEntities())
+            foreach (var room in RoomList.ToList())
             {
-                foreach (var room in ctx.Rooms)
+                 var query = from b in Bookings
+                                 //where (b.StartDate.Date == dtpStartDate.Value.Date && b.EndDate.Date == dtpEndDate.Value.Date && b.RoomID == room.RoomID) 
+                                 //|| (b.StartDate.Date > dtpStartDate.Value.Date && b.EndDate.Date < dtpEndDate.Value.Date && b.RoomID == room.RoomID)
+                             where dtpStartDate.Value.Date >= b.StartDate.Date && dtpEndDate.Value.Date <= b.EndDate.Date && b.RoomID == room.RoomID
+                                    || dtpStartDate.Value.Date == b.StartDate.Date && b.RoomID == room.RoomID
+                                    || dtpEndDate.Value.Date == b.EndDate.Date && b.RoomID == room.RoomID
+
+                             select b;
+
+                //(myDate >= startDate && myDate <= endDate);
+
+
+                if (query.Count() == 0)
                 {
-                    foreach (var booking in room.Bookings)
-                    {
-                        if (booking.StartDate >= dtpStartDate.Value.Date &&
-                            booking.EndDate <= dtpEndDate.Value.Date)
-                        {
-                            isAvailable = false;
-                        }
-
-                        if (isAvailable)
-                        {
-                            availableRooms.Add(room);
-                        }
-                        else availableRooms.Remove(room);
-                    }
+                    availableRooms.Add(room);
                 }
-
-                lstRooms.DataSource = availableRooms;
-                lstRooms.DisplayMember = "Title";
-                lstRooms.ValueMember = "RoomID";
             }
+
+            lstRooms.DataSource = availableRooms;
+            lstRooms.DisplayMember = "Title";
+            lstRooms.ValueMember = "RoomID";
         }
 
         private void cmdSearch_Click(object sender, EventArgs e)
         {
-            //FindAvailableRooms();
+            FindAvailableRooms();
+
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmGuestProfile frmGuestProfile = new frmGuestProfile();
+            frmGuestProfile.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

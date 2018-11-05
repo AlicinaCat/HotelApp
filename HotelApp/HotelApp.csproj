@@ -58,6 +58,12 @@
     <Compile Include="Booking.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="frmGuestProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuestProfile.Designer.cs">
+      <DependentUpon>frmGuestProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmGuestProfile.resx">
+      <DependentUpon>frmGuestProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

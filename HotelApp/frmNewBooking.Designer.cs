@@ -91,6 +91,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(255, 20);
             this.txtEmail.TabIndex = 14;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label1
             // 
@@ -100,6 +101,7 @@
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Guest email";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmdLogIn
             // 
@@ -127,6 +129,7 @@
             this.txtGuestID.Name = "txtGuestID";
             this.txtGuestID.Size = new System.Drawing.Size(209, 20);
             this.txtGuestID.TabIndex = 18;
+            this.txtGuestID.TextChanged += new System.EventHandler(this.txtGuestID_TextChanged);
             // 
             // txtName
             // 
@@ -134,6 +137,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(209, 20);
             this.txtName.TabIndex = 19;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPhone
             // 
@@ -141,6 +145,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(209, 20);
             this.txtPhone.TabIndex = 20;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // label3
             // 
@@ -150,6 +155,7 @@
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 23;
             this.label3.Text = "Phone";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -159,6 +165,7 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 22;
             this.label2.Text = "Name";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -168,6 +175,7 @@
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 21;
             this.label4.Text = "Guest ID";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label7
             // 
