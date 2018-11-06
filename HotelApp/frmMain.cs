@@ -31,8 +31,7 @@ namespace HotelApp
                 Bookings = ctx.Bookings.ToList<Booking>();
             }
 
-
-
+            PopulateComboBox();
 
         }
 
@@ -74,7 +73,7 @@ namespace HotelApp
                             b.StartDate.Date <= checkOut && b.StartDate.Date >= checkIn) && b.RoomID == room.RoomID
                             select b;
 
-                if (query.Count() == 0)
+                if (query.Count() == 0 && (room.People + room.ExtraBed >= (int)cmbPeople.SelectedItem))
                 {
                     availableRooms.Add(room);
                 }
@@ -99,6 +98,23 @@ namespace HotelApp
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void cmbPeople_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PopulateComboBox()
+        {
+            cmbPeople.Items.Add(1);
+            cmbPeople.Items.Add(2);
+            cmbPeople.Items.Add(3);
+            cmbPeople.Items.Add(4);
+            cmbPeople.Items.Add(5);
+            cmbPeople.Items.Add(6);
+
+            cmbPeople.SelectedItem = 1;
         }
     }
 }

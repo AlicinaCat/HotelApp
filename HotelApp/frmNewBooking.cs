@@ -70,6 +70,8 @@ namespace HotelApp
                 cmbExtraBeds.Items.Add(2);
             }
 
+            cmbExtraBeds.SelectedItem = 0;
+
         }
 
         private void cmdLogIn_Click(object sender, EventArgs e)

@@ -182,6 +182,7 @@
             this.cmbPeople.Name = "cmbPeople";
             this.cmbPeople.Size = new System.Drawing.Size(56, 21);
             this.cmbPeople.TabIndex = 15;
+            this.cmbPeople.SelectedIndexChanged += new System.EventHandler(this.cmbPeople_SelectedIndexChanged);
             // 
             // linkLabel1
             // 
