@@ -268,6 +268,7 @@
             this.cmdPayBooking.TabIndex = 58;
             this.cmdPayBooking.Text = "Pay";
             this.cmdPayBooking.UseVisualStyleBackColor = true;
+            this.cmdPayBooking.Click += new System.EventHandler(this.cmdPayBooking_Click);
             // 
             // cmdDeleteAccount
             // 

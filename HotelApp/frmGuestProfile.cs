@@ -160,5 +160,13 @@ namespace HotelApp
                 Close();
             }
         }
+
+        private void cmdPayBooking_Click(object sender, EventArgs e)
+        {
+            Booking selectedBooking = (Booking)lstBookings.SelectedItem;
+
+            frmNewPayment frmNewPayment = new frmNewPayment(selectedBooking);
+            frmNewPayment.Show();
+        }
     }
 }
