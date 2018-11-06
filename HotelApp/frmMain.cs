@@ -31,6 +31,8 @@ namespace HotelApp
                 Bookings = ctx.Bookings.ToList<Booking>();
             }
 
+            CheckValidBooking();
+
             PopulateComboBox();
 
         }
@@ -59,7 +61,7 @@ namespace HotelApp
             frmNewBooking.Show();
         }
 
-        public void FindAvailableRooms()     
+        public void FindAvailableRooms()
         {
             List<Room> availableRooms = new List<Room>();
 
@@ -115,6 +117,31 @@ namespace HotelApp
             cmbPeople.Items.Add(6);
 
             cmbPeople.SelectedItem = 1;
+        }
+
+        private void CheckValidBooking()
+        {
+            using (var context = new HotelBookingsEntities())
+            {
+                foreach (var booking in Bookings)
+                {
+                    Booking b = context.Bookings.Find(booking.BookingID);
+
+                    if ((DateTime.Now.Date - booking.Time.Date).Days > 10 && b.Invoices.Count() == 0)
+                    {
+
+                        context.Invoices.RemoveRange(b.Invoices);
+                        context.Bookings.Remove(b);
+
+                        context.SaveChanges();
+                    }
+                }
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

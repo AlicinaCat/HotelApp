@@ -47,7 +47,7 @@ namespace HotelApp
 
         private void cmdRegister_Click_1(object sender, EventArgs e)
         {
-            frmGuest frmGuest = new frmGuest();
+            frmNewGuest frmGuest = new frmNewGuest();
             frmGuest.Show();
         }
 
@@ -59,7 +59,7 @@ namespace HotelApp
 
         private void lstBookings_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Booking booking = (Booking)lstBookings.SelectedValue;
+            Booking booking = (Booking)lstBookings.SelectedItem;
 
             txtRoomTitle.Text = booking.RoomID.ToString();
             txtStartDate.Text = booking.StartDate.Date.ToString();

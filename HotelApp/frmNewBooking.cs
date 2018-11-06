@@ -94,7 +94,7 @@ namespace HotelApp
 
         private void cmdRegister_Click(object sender, EventArgs e)
         {
-            frmGuest frmGuest = new frmGuest();
+            frmNewGuest frmGuest = new frmNewGuest();
             frmGuest.Show();
         }
 

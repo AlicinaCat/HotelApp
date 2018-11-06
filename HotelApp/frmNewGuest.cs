@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace HotelApp
 {
-    public partial class frmGuest : Form
+    public partial class frmNewGuest : Form
     {
-        public frmGuest()
+        public frmNewGuest()
         {
             InitializeComponent();
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
-            //using (var context = new HotelBookingsEntities())
-            //{
-            //    var guest = new Guest()
-            //    {
-            //        Name = txtName.Text,
-            //        Email = txtEmail.Text,
-            //        Phone = txtPhone.Text
-            //    };
-            //    context.Guests.Add(guest);
+            using (var context = new HotelBookingsEntities())
+            {
+                var guest = new Guest()
+                {
+                    Name = txtName.Text,
+                    Email = txtEmail.Text,
+                    Phone = txtPhone.Text
+                };
+                context.Guests.Add(guest);
 
-            //    context.SaveChanges();
-            //}
+                context.SaveChanges();
+            }
 
-            //Close();
+            Close();
         }
 
         private void label2_Click(object sender, EventArgs e)

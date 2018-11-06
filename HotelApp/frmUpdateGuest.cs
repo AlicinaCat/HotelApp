@@ -38,6 +38,7 @@ namespace HotelApp
                             where g.GuestID == Guest.GuestID
                             select g).SingleOrDefault();
 
+                guest.Name = txtName.Text;
                 guest.Email = txtEmail.Text;
                 guest.Phone = txtPhone.Text;
                 context.SaveChanges();

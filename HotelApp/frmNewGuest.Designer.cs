@@ -1,6 +1,6 @@
 ﻿namespace HotelApp
 {
-    partial class frmGuest
+    partial class frmNewGuest
     {
         /// <summary>
         /// Required designer variable.
